@@ -1,0 +1,11 @@
+﻿@model List<MainCategory>
+
+<div class="list-group">
+    <div class="list-group-item list-group-item-action btn-lg"  style="background-color: #f3f0ab">Kategoriler</div>
+    @foreach (var maincategory in Model)
+    {
+        <a href="/shop/@maincategory.Name.ToLower()?id=@maincategory.MainCategoryId" class="list-group-item list-group-item-action btn btn-dark btn-sm ">
+            @maincategory.Name
+        </a>
+    }
+</div>   

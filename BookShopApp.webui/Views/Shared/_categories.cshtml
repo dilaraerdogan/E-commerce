@@ -1,0 +1,10 @@
+﻿@model List<Category>
+
+<div class="list-group">
+    <a href="/shop" class="list-group-item list-group-item-action  btn-lg"  style="background-color: #f3f0ab">Alt Kategoriler</a>
+    @foreach (var category in Model)
+    {
+        <a href="/shop/@ViewBag.MainCategory/@category.Url.ToLower()"
+           class="list-group-item list-group-item-action btn btn-dark btn-sm">@category.Name</a>
+    }
+</div>   

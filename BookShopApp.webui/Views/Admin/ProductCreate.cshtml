@@ -1,0 +1,140 @@
+﻿@model ProductModel
+<h1 class="h3"> Ürün Ekle </h1>
+<hr />
+<meta charset="utf-8">
+<title>CKEditor</title>
+<script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+<div class="w-100">
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-controller="Admin" asp-action="ProductCreate" method="POST">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group row">
+                    <label asp-for="KitapAdi" class="col-sm-2 col-form-label">Kitap Adı</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="KitapAdi" />
+                        <span asp-validation-for="KitapAdi" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Url" class="col-sm-2 col-form-label">Url</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="Url" />
+                        <span asp-validation-for="Url" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Yazar" class="col-sm-2 col-form-label">Yazar</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="Yazar" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="YayınEvi" class="col-sm-2 col-form-label">Yayın Evi</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="YayınEvi" />
+                        <span asp-validation-for="YayınEvi" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Cevirmen" class="col-sm-2 col-form-label">Çevirmen</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="Cevirmen" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Icerik" class="col-sm-2 col-form-label">Icerik</label>
+                    <div class="col-sm-10">
+                        <textarea id="editor1" class="form-control" asp-for="Icerik"></textarea>
+                        <script>
+                            CKEDITOR.replace('editor1');
+                        </script>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Ucret" class="col-sm-2 col-form-label">Ucret</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="Ucret" />
+                        <span asp-validation-for="Ucret" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="ResimUrl" class="col-sm-2 col-form-label">Resim Url</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="ResimUrl" />
+                        <span asp-validation-for="ResimUrl" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="SayfaSayisi" class="col-sm-2 col-form-label">Sayfa Sayısı</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="SayfaSayisi" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="StokAdedi" class="col-sm-2 col-form-label">Stok Adedi</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="StokAdedi" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="BaskiYili" class="col-sm-2 col-form-label">Baskı Yılı</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="BaskiYili" />
+                        <span asp-validation-for="BaskiYili" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <label for="Alt Kategoriler">Alt Kategori Seç</label>
+                @for (int i = 0; i < ViewBag.Categories.Count; i++)
+                {
+            <input type="hidden" name="Categories[@i].CategoryId" value="@ViewBag.Categories[@i].CategoryId" />
+                            <input type="hidden" name="Categories[@i].Name" value="@ViewBag.Categories[@i].Name" />}
+
+                <select asp-for="@Model.CategoryId">
+
+                    @if (ViewBag.Categories.Count > 0)
+                    {
+            @foreach (var item in ViewBag.Categories)
+            {
+            <option value="@item.CategoryId">@item.Name</option>
+}}
+                </select>
+
+                <label asp-for="Dil" class="col-sm-1 col-form-label">Dil</label>
+                <select asp-for="Dil">
+                    <option>Türkçe</option>
+                    <option>İngilizce</option>
+                    <option>Almanca</option>
+                    <option>Fransızca</option>
+                    <option>Diğer</option>
+                </select>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" asp-for="Onay">
+                    <label class="form-check-label" asp-for="Onay">
+                        Onay
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" asp-for="AnaSayfa">
+                    <label class="form-check-label" asp-for="AnaSayfa">
+                        Ana Sayfa
+                    </label>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary">Ürünü Kaydet</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

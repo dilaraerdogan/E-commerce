@@ -1,0 +1,82 @@
+﻿@model RegisterModel
+        <div class="bg-light bg-gradient">
+            <h1 class="fs-2 my-3 mx-3 pt-2 text-warning">Kayıt Ol</h1>
+            <p class="text-muted fs-5 my-4 mx-3 pb-2">
+                Sende Büyük Okaliptüs Ailesine Dahil Ol
+            </p>
+        </div>
+        <hr />
+        <meta charset="utf-8">
+        <form asp-controller="Account" asp-action="Register" method="POST">
+            <div class="w=100">
+                <div class="row">
+                    <div class="col-md-8 bg-light bg-gradient py-3">
+                        <div class="form-group row">
+                            <label asp-for="FirstName" class="col-sm-2 col-form-label">İsim</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="FirstName" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="LastName" class="col-sm-2 col-form-label">Soyisim</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="LastName" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="UserName" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="UserName" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Password" class="col-sm-2 col-form-label">Parola</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="Password" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="RePassword" class="col-sm-2 col-form-label">Tekrar Parola</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="RePassword" />
+                                <span asp-validation-for="RePassword" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="Email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-check my-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <a href="#" class="link-danger">Üyelik koşullarını</a> ve <a href="#" class="link-danger">kişisel verilerimin korunmasını</a> kabul ediyorum.
+                            </label>
+                        </div>
+                        <div class="form-check my-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <a href="#" class="link-danger">Okaliptüs Üyeliği Aydınlatma Metni'ni okudum</a> , anladım.
+                            </label>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10 offset-sm-2">
+                                <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mx-auto my-5" style="width: 300px;">
+                            <img src="~/logo/Logogif.gif" alt="gif" width="300" height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+    <ItemGroup>
+      <None Remove="Views\Shared\bgimage.css" />
+    </ItemGroup>
+    <ItemGroup>
+		<ProjectReference Include="..\BookShopApp.data\BookShopApp.data.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\BookShopApp.entity\BookShopApp.entity.csproj" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	  <PackageReference Include="Iyzipay" Version="2.1.39" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtraznsitive</IncludeAssets>
+    </PackageReference>
+	  <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+  </ItemGroup>
+	
+	<PropertyGroup>
+		<TargetFramework>netcoreapp5.0</TargetFramework>
+	</PropertyGroup>
+
+
+</Project>

@@ -1,0 +1,73 @@
+﻿<div class="navbar navbar-dark navbar-expand-sm" style="background-color: #b8a9b7">
+        <div class="container-fluid">
+
+            <a href="/" class="navbar-brand">Okaliptüs Kitabevi</a>
+            <ul class="navbar-nav mr-auto">
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Customer"))
+                    {
+                        <li class="nav-item">
+                            <a href="/shop/favorites" class="nav-link text-white"><i class="fas fa-heart"></i> Favorilerim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/cart" class="nav-link text-white"> <i class="fas fa-shopping-cart"></i> Sepet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/orders" class="nav-link text-white"><i class="far fa-credit-card"></i> Siparişler</a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a href="/admin/products" class="nav-link">Admin Ürünleri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/categories" class="nav-link">Admin Kategorileri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/role/list" class="nav-link">Roller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/user/list" class="nav-link">Kullanıcılar</a>
+                        </li>
+                    }
+                }
+               
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link text-white" style="font-size: 13px;"><i class="fab fa-twitter-square"></i> Twitter</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/" class="nav-link text-white" style="font-size: 13px;"> <i class="fab fa-instagram"></i> İnstagram</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/" class="nav-link text-white" style="font-size: 13px;"> <i class="fab fa-pinterest"></i> Pinterest</a>
+                </li>
+                @if (User.Identity.IsAuthenticated)//kullanıcı gırıs yapmıs mı yapmamıs mı onu verır
+                {
+                    <li class="nav-item">
+                        <a href="/account/logout/manage" class="nav-link">
+                            @User.Identity.Name
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/account/logout" class="nav-link text-white"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a href="/account/login" class="nav-link">Giriş Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/account/register" class="nav-link">Kayıt Ol</a>
+                    </li>
+                }
+            </ul>
+        </div>
+ </div>

@@ -1,0 +1,35 @@
+﻿@model Product
+         
+ <div class="card-deck">
+        <div class="card bg-light mb-2" style="min-height:560px;">
+            <div class="card-body text-center">
+
+
+                <img class="card-image-top img-fluid " rounded mx-auto d-block"" src="~/img/@Model.ResimUrl" alt="">
+
+                <p class="card-title  mt-2 text-center">@Model.KitapAdi</p>
+                <small class="text-primary">
+                    <i class="fas fa-lira-sign"></i>@Model.Ucret
+                </small>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-controller="shop" asp-action="Details" asp-route-url="@Model.Url" class="btn btn-sm" style="background-color: #e9e6a9">İncele</a>
+                <a href="/shop/deletefavorite/@Model.ProductId" class="btn btn-sm ml-2" style="background-color: #ff6e5f">Favoriden Kaldır</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (Model.StokAdedi > 0)
+                    {
+                        <form asp-controller="Cart" asp-action="AddToCart" method="post" style="display:inline">
+                            <input type="hidden" name="ProductId" value="@Model.ProductId" />
+                            <input type="hidden" name="quantity" value="1" />
+                            <button type="submit" class="btn btn-sm mt-2" style="background-color: #e9e6a9">Sepete Ekle</button>
+                        </form>
+                    }
+
+                }
+
+            </div>
+        </div>
+    </div>
+            
+   

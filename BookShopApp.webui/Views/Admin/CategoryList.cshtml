@@ -1,0 +1,83 @@
+﻿@model CategoryListViewModel
+    <div class="w-100">
+        <div class="row">
+            <div class="com-md-12">
+                <h1 class="h3">Admin Kategorileri</h1>
+                <hr />
+                <a class="btn btn-primary btn-sm" href="/admin/categories/create">Kategori Ekle</a>
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <td style="width:70px;">Id</td>
+                            <td style="width:1000px">Kategori Adı</td>
+                            <td style="width:170px;"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Categories.Count > 0)
+                        {
+                            @foreach (var item in Model.Categories)
+                            {
+                                <tr>
+                                    <td>@item.CategoryId</td>
+                                    <td>@item.Name</td>
+                                    <td>
+                                        <a href="/admin/categories/@item.CategoryId" class="btn btn-primary btn-sm mr-2">Düzenle</a>
+
+                                        <form action="/admin/deletecategory" method="POST" style="display:inline">
+                                            <input type="hidden" name="categoryId" value="@item.CategoryId" />
+                                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning">
+                                <h3>No Categories</h3>
+                            </div>
+                        }
+                    </tbody>
+                </table>
+
+                <a class="btn btn-primary btn-sm" href="/admin/maincategories/create">Ana Kategori Ekle</a>
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <td style="width:70px;">Id</td>
+                            <td style="width:1000px">Ana Kategori İsmi</td>
+                            <td style="width:170px;"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if (Model.MainCategories.Count > 0)
+                        {
+                            @foreach (var item in Model.MainCategories)
+                            {
+                                <tr>
+                                    <td>@item.MainCategoryId</td>
+                                    <td>@item.Name</td>
+                                    <td>
+                                        <a href="/admin/maincategories/@item.MainCategoryId" class="btn btn-primary btn-sm mr-2">Düzenle</a>
+                                      
+                                        <form action="/admin/deletemaincategory" method="POST" style="display:inline">
+                                            <input type="hidden" name="maincategoryId" value="@item.MainCategoryId" />
+                                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning">
+                                <h3>No MainCategories</h3>
+                            </div>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

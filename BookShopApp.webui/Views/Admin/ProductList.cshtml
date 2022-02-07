@@ -1,0 +1,82 @@
+﻿@model ProductListViewModel
+    <div class="w-100">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="h3">Admin Ürünleri</h1>
+                <hr />
+                <a class="btn btn-primary btn-sm" href="/admin/products/create">Ürün Ekle</a>
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <td style="width:35px; ">Id</td>
+                            <td style="width:100px; ">Resim</td>
+                            <td style="width:500px; ">KitapAdi</td>
+                            <td style="width:75px; ">Ücret</td>
+                            <td style="width:100px; ">Yazar</td>
+                            <td style="width:100px; ">Cevirmen</td>
+                            <td style="width:100px; ">YayınEvi</td>
+                            <td style="width:100px; ">Sayfa Sayısı</td>
+                            <td style="width:100px; ">Baskı Yılı</td>
+                            <td style="width:100px; ">Stok Adedi</td>
+                            <td style="width:100px; ">Ana Sayfa</td>
+                            <td style="width:50px; ">Onaylı</td>
+                            <td style="width:150px"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Products.Count > 0)
+                        {
+                            @foreach (var item in Model.Products)
+                            {
+                        <tr>
+                            <td>@item.ProductId</td>
+                            <td><img src="~/img/@item.ResimUrl" width="80"></td>
+                            <td>@item.KitapAdi</td>
+                            <td>@item.Ucret</td>
+                            <td>@item.Yazar</td>
+                            <td>@item.Cevirmen</td>
+                            <td>@item.YayınEvi</td>
+                            <td>@item.SayfaSayisi</td>
+                            <td>@item.BaskiYili</td>
+                            <td>@item.StokAdedi</td>
+                            <td>
+                                @if (item.IsHome)
+                                {
+                                    <i class="fas fa-check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle"></i>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Onay)
+                                {
+                                    <i class="fas fa-check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle"></i>
+                                }
+                            </td>
+                            <td>
+                                <a href="/admin/products/@item.ProductId" class="btn btn-primary btn-sm mr-2 mt-2">Düzenle</a>
+                                <form action="/admin/deleteproduct" method="POST" style="display:inline">
+                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <button type="submit" class="btn btn-danger btn-sm mt-2">Sil</button>
+                                </form>
+                            </td>
+                        </tr>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning">
+                                <h3>Ürün Yok</h3>
+                            </div>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

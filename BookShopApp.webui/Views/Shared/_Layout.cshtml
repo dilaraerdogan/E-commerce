@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    @RenderSection("Css", false)
+
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>BookShopApp</title>
+</head>
+<body>
+
+    @await Html.PartialAsync("_navbar")
+
+    <main class="my-3 mx-5">
+        <div class="container-fluid">
+
+            @if (TempData["message"] != null)
+            {
+                <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))"></partial>
+            }
+
+            @RenderBody()
+
+        </div>
+    </main>
+        <footer class="p-4 text-white text-center mt-auto" style="background-color: #b4a6b3">
+            Okaliptüs Kitabevi | 2021
+            <br />
+            <span> <i class="fas fa-copyright"></i> Tüm Hakları Saklıdır.</span>
+        </footer>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    @RenderSection("Scripts", false)
+</body>
+</html>
