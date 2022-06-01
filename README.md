@@ -26,7 +26,6 @@
  - Kullanıcı alışverişleri için; sipariş süreci, sipariş detay sayfasının bulunması
  - Alışveriş için son adım olarak, güvenli online ödeme olan Iyzico Ödeme kullanılması
  
-![Ekran görüntüsü 2022-06-02 020330](https://user-images.githubusercontent.com/77547120/171516713-3206736a-0817-48c5-9ff9-6eb86f83a26c.jpg)
 ![Ekran görüntüsü 2022-06-02 020417](https://user-images.githubusercontent.com/77547120/171516732-d80d8277-5cf9-459f-9d7d-0cf5cb481d1c.jpg)
 ![Ekran görüntüsü 2022-06-02 020912](https://user-images.githubusercontent.com/77547120/171516740-3173819d-bb7b-458b-b3bf-f6b1697b498d.jpg)
 ![Ekran görüntüsü 2022-06-02 021023](https://user-images.githubusercontent.com/77547120/171516761-93e6bca5-d7c2-4bae-a2f8-21ad32288975.jpg)
